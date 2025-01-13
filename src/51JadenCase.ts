@@ -1,4 +1,4 @@
-function solution(s: string): string {
+function JadenCase(s: string): string {
 	return s
 			.split(' ') // 공백을 기준으로 분리 (연속된 공백 처리 가능)
 			.map((word) => {
@@ -16,4 +16,4 @@ function solution(s: string): string {
 			.join(' '); // 공백으로 다시 결합
 }
 
-console.log(solution("   3people   unFollowed   me   "));
+console.log(JadenCase("   3people   unFollowed   me   "));

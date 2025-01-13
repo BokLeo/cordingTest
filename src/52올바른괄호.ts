@@ -51,7 +51,7 @@
  */
 
 		
-function solution(s:string){
+function 올바른괄호(s:string){
 	if(s[0] !== '(') return false;
 	if(s[s.length-1] !== ')') return false;
 
@@ -77,4 +77,4 @@ function solution(s:string){
  *  - 스택에서는 LIFO (Last In, First Out) 방식이므로, 배열의 마지막 요소를 추가하거나 제거해야 합니다. 이를 위해 push와 pop을 사용해야 합니다. pop()은 배열의 마지막 요소를 제거하므로 O(1) 시간 복잡도를 가지며 효율적입니다.
  * 
  */
-console.log(solution("()()"));
+console.log(올바른괄호("()()"));

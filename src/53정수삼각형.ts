@@ -1,4 +1,4 @@
-function solution(triangle: number[][]): number {
+function 정수삼각형(triangle: number[][]): number {
 	// 삼각형의 높이
 	const n = triangle.length;
 
@@ -16,7 +16,7 @@ function solution(triangle: number[][]): number {
 }
 
 // 테스트 실행
-console.log(solution([[7], [3, 8], [8, 1, 0], [2, 7, 4, 4], [4, 5, 2, 6, 5]])); // 출력: 30
+console.log(정수삼각형([[7], [3, 8], [8, 1, 0], [2, 7, 4, 4], [4, 5, 2, 6, 5]])); // 출력: 30
 
 /*
 ✨ keypoint : 동적 프로그래밍(Dynamic Programming)
