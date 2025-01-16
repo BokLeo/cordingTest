@@ -41,14 +41,14 @@ function 멀리뛰기(n) {
         // let facY = factorial(y);
         // console.log(`facSum : ${facSum} / facX : ${facX} / facY : ${facY}`)
         // let val = facSum / (facX * facY);
-        console.log(`(x,y) : ${x}, ${y} / (sum) : ${sum} / (val) : ${val} `);
+        // console.log(`(x,y) : ${x}, ${y} / (sum) : ${sum} / (val) : ${val} `);
         totalSum += val;
         value[0] -= 2;
         value[1] += 1;
     }
     return totalSum;
 }
-console.log(멀리뛰기(1000)); // 5
+// console.log(멀리뛰기(6));			// 5
 /*
 [같은 것이 있는 순열]
 
@@ -80,5 +80,14 @@ n 이 6일때,
 
 
 
- */ 
+ */
+function test(n) {
+    let Fibonacci = [0, 1];
+    while (n > 0) {
+        Fibonacci = [Fibonacci[Fibonacci.length - 1] % 1234567, (Fibonacci[Fibonacci.length - 1] + Fibonacci[Fibonacci.length - 2]) % 1234567];
+        n--;
+    }
+    return Fibonacci[Fibonacci.length - 1];
+}
+console.log(test(2000)); // 13
 //# sourceMappingURL=63%EB%A9%80%EB%A6%AC%EB%9B%B0%EA%B8%B0.js.map
