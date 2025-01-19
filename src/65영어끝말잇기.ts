@@ -142,5 +142,33 @@ function 영어끝말잇기2(n:number, words:string[]){
 	- 하지만 for 루프에 따라 증가하는 passArr의 findIndex는 갯수에 비례하여 증가합니다.
 		> passArr.finIndex 는 각 루프에서 최대 O(k) 실행됩니다.
 		> k는 passArr의 길이. (최악의 경우, 내부 연산은 O(1 + 2 + 3 + ... + (m - 1)) = O(m²));
-
+	
+	- ⭐ 집합(Set)을 사용해보자!
+		> 집합을 사용하면 존재 확인을 O(1)에 확인가능하다.
+		> Set의 add와 has연산은 평균적으로 O(1)이다.
+		>> 개선된 코드는 O(m)의 시간복잡도를 가질수 있다.
 */
+
+function 영어끝말잇기3(n:number, words:string[]) {
+	const passSet = new Set(); // 중복 확인을 위한 집합
+	let 사람번호 = 0;
+	let 바퀴수 = 0;
+
+	for (let idx = 0; idx < words.length; idx++) {
+			const preWord = words[idx - 1];
+			const nextWord = words[idx];
+
+			if (
+					(preWord && preWord[preWord.length - 1] !== nextWord[0]) || // 앞뒤 글자 확인
+					passSet.has(nextWord) // 중복 단어 확인
+			) {
+					사람번호 = (idx % n) + 1;
+					바퀴수 = Math.ceil((idx + 1) / n);
+					break;
+			}
+
+			passSet.add(nextWord); // 새로운 단어 추가
+	}
+
+	return [사람번호, 바퀴수];
+}
