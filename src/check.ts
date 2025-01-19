@@ -1,19 +1,50 @@
-let arr = [1,2,3,4,5];
-delete arr[0];
+["tank", "kick", "know", "wheel","tank"].findIndex((item, idx)=>{
+	if(item === 'asdas') return console.log(idx);
+})
 
 
+3명이서 끝말잇기를 하고있다.
+// idx = 3이다.
+idx=3 즉, 4번째에서 오류가 발견됫다.
 
-console.log(arr);
 
-for(const i in arr){
-	delete arr[i];
-}
+4번째에서 오류가 낫다면
+잘못한 사람은 첫번째 사람이다.
 
-console.log('arr2 : ', arr);
+math.floor(4%3) = 1
 
-for(const i in arr){
-	console.log('??? ; ', i);
-	console.log(arr[i]);
-}
 
-// console.log([...new Set(arr)]);
+idx가 1입니다.
+
+그럼 2번째걸 말한사람이 잘못한거죠
+
+idx+1 이 말한 횟수인데
+
+이걸 n(2)으로 나누면
+
+idx(1)+1 / n
+
+1입니다.
+
+그냥 idx를 n으로 나누면
+
+1/2입니다. 0.5죠 이건 아닌거 같아요.
+
+idx+1한다음 n으로 나누면
+1+1 / 2 입니다. 1이죠.
+
+나머지를 한번 볼까요
+
+idx+1한다음 n으로 나눈 나머지를 보면
+1+1 % 2 0입니다.
+0이라면 첫번째 친구가 틀렷다는거죠
+
+하지만 두번째 친구가 틀린것입니다. 그러므로 이것또한 답이 아닙니다.
+
++1하지 않고 한다면?
+
+idx % 2
+1 % 2 나머지는 1입니다. 아니죠.
+
+1 % 2 나머지는 1 -> 두번째
+2 % 2 나머지는 0 -> 첫번째
