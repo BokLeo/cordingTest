@@ -1,1 +1,2 @@
-console.log(Math.floor(9 / 2));
+let s = [true,true,true,true,true];
+console.log(s.includes(true));

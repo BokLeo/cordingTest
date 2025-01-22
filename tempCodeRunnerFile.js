@@ -1,6 +1,16 @@
 "use strict";
-reduce((acc, num) => {
-    acc[num] = (acc[num] || 0) + 1;
-    return acc;
-}, {});
+ring;
+{
+    // 	let checkArr = [];
+    // 	for(const i of str){
+    // 		if(checkArr)
+    // 		console.log(i);
+    // 	}
+    // }}
+// 	let checkArr = [];
+// 	for(const i of str){
+// 		if(checkArr)
+// 		console.log(i);
+// 	}
+// }
 //# sourceMappingURL=tempCodeRunnerFile.js.map

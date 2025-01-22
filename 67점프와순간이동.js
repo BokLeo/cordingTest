@@ -29,8 +29,8 @@ function 점프와순간이동(n) {
     let result = 0;
     while (n > 0) {
         n % 2 === 0 ? (n = n / 2) : (result++, n--);
-    };
-    
+    }
+    ;
     return result;
 }
 // 1 2 4 8 16 32 64
