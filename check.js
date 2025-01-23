@@ -1,22 +1,48 @@
-function maxSum(arr, k) {
-  let max = 0;
-  let currentSum = 0;
-
-  // 첫 윈도우 합 계산
-  for (let i = 0; i < k; i++) {
-    currentSum += arr[i];
-  }
-  max = currentSum;
-
-  // 윈도우를 이동하며 합 계산
-  for (let i = k; i < arr.length; i++) {
-    currentSum += arr[i] - arr[i - k];
-    max = Math.max(max, currentSum);
-  }
-
-  return max;
+"use strict";
+function solution(n, left, right) {
+    return new Array(right - left + 1)
+        .fill(left)
+        .map((v, i) => v + i)
+        .map(i => Math.max(Math.floor(i / n + 1), i % n + 1));
 }
+console.log(solution(4, 7, 14));
+/*
+    // 1 2 3 4
+    // 2 2 3 4
+    // 3 3 3 4
+    // 4 4 4 4
+*/
+/*
+    7		[1...3] =====> 4 -> 나머지가큼 ->
+    8		[2...0] =====> 3
+    9		[2...1] =====> 3
+    10	[2...2] =====> 3
+    11	[2...3] =====> 4 -> 나머지가큼 ->
+    12	[3...0] =====> 4
+    13	[3...1] =====> 4
+    14	[3...2] =====> 4
+*/
+/*
+0 	[0 ... 0]		1
+1 	[0 ... 1]		2
+2 	[0 ... 2]		3
+3 	[0 ... 3]		4
+-----------------
+4 	[1 ... 0]		2
+5 	[1 ... 1]		2
+6 	[1 ... 2]		3
+7 	[1 ... 3]		4
+-----------------
+8 	[2 ... 0]		3
+9 	[2 ... 1]		3
+10	[2 ... 2]		3
+11	[2 ... 3]		4
+-----------------
+12	[3 ... 0]		4
+13	[3 ... 1]		4
+14	[3 ... 2]		4
+15	[3 ... 3]		4
 
-const arr = [2, 1, 5, 1, 3, 2];
-const k = 3;
-console.log(maxSum(arr, k)); // 출력: 9
+
+*/
+//# sourceMappingURL=check.js.map
