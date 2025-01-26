@@ -5,6 +5,8 @@
     "version": "0.2.0",
     "configurations": [
 			
+			
+
         {
             "type": "java",
             "name": "Launch Helloworld",
@@ -24,6 +26,14 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "file": "${workspaceFolder}/index.html"
-        }
+        },
+				{
+					"type": "node",
+					"request": "launch",
+					"name": "Launch Program",
+					"skipFiles": ["<node_internals>/**"],
+					"program": "${file}",
+					"console": "internalConsole" // 디버그 콘솔로 출력 설정
+				}
     ]
 }
