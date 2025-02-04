@@ -9,7 +9,6 @@
 	- 곱할 수 있는 배열만 주어집니다.
 */
 function 행렬의곱셈(arr1:number[][], arr2:number[][]){
-	let col = arr1[0].length;
 	let span = arr2[0].length;
 	let leng = arr2.length;
 

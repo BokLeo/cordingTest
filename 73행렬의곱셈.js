@@ -10,7 +10,6 @@
     - 곱할 수 있는 배열만 주어집니다.
 */
 function 행렬의곱셈(arr1, arr2) {
-    let col = arr1[0].length;
     let span = arr2[0].length;
     let leng = arr2.length;
     let result = [];
@@ -42,4 +41,4 @@ C[i][j] = A[i][1]B[1][j] + A[i][2]B[2][j] + ... + A[i][n]*B[n][j]
     😂 행렬 공부하고 옴.
 
 */ 
-//# sourceMappingURL=(No)73%ED%96%89%EB%A0%AC%EC%9D%98%EA%B3%B1%EC%85%88.js.map
+//# sourceMappingURL=73%ED%96%89%EB%A0%AC%EC%9D%98%EA%B3%B1%EC%85%88.js.map
