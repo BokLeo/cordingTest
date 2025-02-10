@@ -1,60 +1,32 @@
-function test(arr: number[][]): [number, number] {
-    // ✅ `Matrix` 타입 정의
-    type Matrix = number[][];
+function maxDungeonVisits(k: number, dungeons: number[][]): number {
+	function findOptimalDungeons(k: number, dungeons: number[][], visited: boolean[], visitedCount: number = 0): number {
+			let maxVisited = visitedCount;
+			console.log('maxVisited : ' + maxVisited, 'visited : ' + visited);
 
-    // ✅ 쿼드트리 압축 타입 정의
-    type QuadMatrix = [number | QuadMatrix, number | QuadMatrix, number | QuadMatrix, number | QuadMatrix];
+			for (let i = 0; i < dungeons.length; i++) {
+					if (visited[i]) continue; // 이미 방문한 던전은 건너뜀
 
-    // ✅ 특정 영역이 전부 같은 숫자인지 검사하는 함수
-    const isUniform = (matrix: Matrix): boolean => {
-        const firstValue = matrix[0][0];
-        return matrix.every(row => row.every(cell => cell === firstValue));
-    };
+					const [requiredK, consumeK] = dungeons[i];
 
-    // ✅ 행렬을 4분할하여 쿼드트리 형태로 변환
-    const splitMatrixRecursive = (matrix: Matrix): number | QuadMatrix => {
-        const size = matrix.length;
+					console.log(' requiredK ' + requiredK);
+					console.log(' k ' + k);
 
-        // **기저 조건(Base Case):** 크기가 1x1이거나, 모든 값이 같다면 숫자로 반환
-        if (size === 1 || isUniform(matrix)) return matrix[0][0];
+					if (k >= requiredK) { // 던전 방문 가능
+							visited[i] = true; // 방문 표시
+							maxVisited = Math.max(maxVisited, findOptimalDungeons(k - consumeK, dungeons, visited, visitedCount + 1));
+							visited[i] = false; // 백트래킹 (다른 경로 탐색을 위해 방문 취소)
+					}
+			}
 
-        const half = size / 2;
+			return maxVisited;
+	}
 
-        let topLeft: Matrix = matrix.slice(0, half).map(row => row.slice(0, half));
-        let topRight: Matrix = matrix.slice(0, half).map(row => row.slice(half));
-        let bottomLeft: Matrix = matrix.slice(half).map(row => row.slice(0, half));
-        let bottomRight: Matrix = matrix.slice(half).map(row => row.slice(half));
-
-        return [
-            splitMatrixRecursive(topLeft),
-            splitMatrixRecursive(topRight),
-            splitMatrixRecursive(bottomLeft),
-            splitMatrixRecursive(bottomRight)
-        ];
-    };
-
-    // ✅ 최종 압축된 결과에서 0과 1의 개수를 세는 함수
-    const countCompressedValues = (matrix: number | QuadMatrix): [number, number] => {
-        // **기저 조건(Base Case):** 숫자 하나만 남아 있다면 해당 숫자의 개수 증가
-        if (typeof matrix === "number") {
-            return matrix === 0 ? [1, 0] : [0, 1];
-        }
-
-        // **재귀적으로 탐색하여 개수 합산**
-        let countZero = 0;
-        let countOne = 0;
-
-        for (const part of matrix as QuadMatrix) {
-            const [zero, one] = countCompressedValues(part);
-            countZero += zero;
-            countOne += one;
-        }
-
-        return [countZero, countOne];
-    };
-
-    return countCompressedValues(splitMatrixRecursive(arr));
+	return findOptimalDungeons(k, dungeons, new Array(dungeons.length).fill(false));
 }
 
-// ✅ 테스트 실행
-console.log(test([[1,1,0,0],[1,0,0,0],[1,0,0,1],[1,1,1,1]])); // ⬅ 예상 출력: [4, 9]
+// ✅ 테스트 케이스
+// console.log(maxDungeonVisits(80, [[80, 20], [50, 40], [30, 10]])); // 3
+// console.log(maxDungeonVisits(78, [[78, 18], [70, 11], [67, 9], [60, 8], [59, 2], [57, 54]])); // 4
+// console.log(maxDungeonVisits(10, [[10, 10], [10, 10], [10, 10]])); // 1
+// console.log(maxDungeonVisits(5, [[3, 2], [2, 2], [2, 1]])); // 3
+console.log(maxDungeonVisits(4, [[4,3],[2,2],[2,2]])); // 2

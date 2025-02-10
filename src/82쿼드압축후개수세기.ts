@@ -13,6 +13,7 @@
 	arr의 각 행의 길이는 arr의 행의 개수와 같습니다. 즉, arr은 정사각형 배열입니다.
 	arr의 각 행에 있는 모든 값은 0 또는 1 입니다.
  */
+/** ❌ gpt 정답  */
 	function 쿼드압축(arr: number[][]): [number, number] {
     // ✅ `Matrix` 타입 정의
     type Matrix = number[][];
