@@ -1,39 +1,39 @@
 {
-    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
-    // 기존 특성에 대한 설명을 보려면 가리킵니다.
-    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
-    "version": "0.2.0",
-    "configurations": [
-			
-			
-
-        {
-            "type": "java",
-            "name": "Launch Helloworld",
-            "request": "launch",
-            "mainClass": "Helloworld",
-            "projectName": "test_5ce6d3c5"
-        },
-        {
-            "type": "java",
-            "name": "Launch java_test",
-            "request": "launch",
-            "mainClass": "java_test",
-            "projectName": "test_5ce6d3c5"
-        },
-        {
-            "type": "pwa-chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "file": "${workspaceFolder}/index.html"
-        },
-				{
-					"type": "node",
-					"request": "launch",
-					"name": "Launch Program",
-					"skipFiles": ["<node_internals>/**"],
-					"program": "${file}",
-					"console": "internalConsole" // 디버그 콘솔로 출력 설정
-				}
-    ]
+	// IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+	// 기존 특성에 대한 설명을 보려면 가리킵니다.
+	// 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+	"version": "0.2.0",
+	"configurations": [
+		
+		{
+			"type": "java",
+			"name": "Launch Helloworld",
+			"request": "launch",
+			"mainClass": "Helloworld",
+			"projectName": "test_5ce6d3c5"
+		},
+		{
+			"type": "java",
+			"name": "Launch java_test",
+			"request": "launch",
+			"mainClass": "java_test",
+			"projectName": "test_5ce6d3c5"
+		},
+		{
+			"type": "pwa-chrome",
+			"request": "launch",
+			"name": "Launch Chrome against localhost",
+			"file": "${workspaceFolder}/index.html"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Run TypeScript with ts-node",
+			"runtimeArgs": ["-r", "ts-node/register"],
+			"args": ["${file}"],
+			"cwd": "${workspaceFolder}",
+			"internalConsoleOptions": "openOnSessionStart",
+			"skipFiles": ["<node_internals>/**"]
+		}
+	]
 }
